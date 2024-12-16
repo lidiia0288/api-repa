@@ -5,7 +5,9 @@
     "allure-playwright": "^3.0.7"
   },
   "scripts": {
-    "test": "npx playwright test",
+    "test:api.tests.js": "npx playwright test api.tests.js",
+    "test:ui.tests.js": "npx playwright test ui.tests.js",
+    "test": "npm run test:api.tests.js & npm run test:ui.tests.js",
     "allureGenerate": "allure generate --clean",
     "allureOpen": "allure open",
     "allure": "allure generate --clean && allure open"

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TodosPage, ChallengesPage } from "./pages/index";
+import { TodosPage, ChallengesPage } from "./pages_api/index";
 
 export class ApiClient {
     constructor(token) {
