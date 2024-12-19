@@ -4,8 +4,9 @@ import {App} from '../src/pages_ui/app.page'
 
 const url = 'https://academybugs.com/find-bugs/';
 const productUrl = 'https://academybugs.com/store/flamingo-tshirt/';
-const mistakeFrame = 'AcademyBugs.com';
-const mistakeAlarm = 'In this bug';
+const mistakeFrame = 'In this bug';
+const mistakeAlarm = 'What did you find out';
+const mistakeText = 'You found a crash bug';
 let app;
 
 
@@ -15,9 +16,10 @@ test('Проверить пагинацию на главной странице
 
   await app.mainPage.open(url);
   await app.mainPage.goToPagination();
-  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
+ 
+  await app.mainPage.errorText.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
+  await expect(await app.mainPage.errorText).toContainText(mistakeText);
 
 });
 
@@ -28,9 +30,9 @@ test('Проверить отображение товара на главной
   await app.mainPage.open(url);
   await app.mainPage.goToProductCard();
 
-  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
+  await expect(await app.mainPage.errorFrame).toContainText(mistakeFrame);
 });
 
 test('Выбрать валюту в карточке товара', async ({ page }) => {
@@ -40,9 +42,9 @@ test('Выбрать валюту в карточке товара', async ({ pa
   await app.mainPage.open(productUrl);
   await app.productPage.goToChange();
   
-  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
+  await expect(await app.mainPage.errorFrame).toContainText(mistakeFrame);
 });
 
 
@@ -57,7 +59,7 @@ test('Опубликовать отзыв на странице продукта
 
   await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
+  await expect(await app.mainPage.errorAlarm).toContainText(mistakeAlarm);
 });
 
 test('Выбрать количество товара в карточке', async ({ page }) => {
@@ -70,5 +72,5 @@ test('Выбрать количество товара в карточке', asy
   
   await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorFrame).toContainText(mistakeAlarm);
+  await expect(await app.mainPage.errorFrame).toContainText(mistakeFrame);
 });

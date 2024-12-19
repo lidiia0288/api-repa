@@ -7,7 +7,8 @@ export class MainPage extends BasePage {
         this.quantityProducts = this.page.getByRole('link', { name: '50' });
         this.productCard = this.page.locator('#ec_product_image_effect_4281370');
         this.errorFrame = this.page.locator('#popmake-4406');
-        this.errorAlarm = this.page.getByRole('heading', { name: 'AcademyBugs.com' });
+        this.errorAlarm = this.page.locator('#bug-popup');
+        this.errorText = this.page.locator('.academy-bug-overlay');
     }
 
     async goToPagination () {
