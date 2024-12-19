@@ -30,9 +30,9 @@ test('Проверить отображение товара на главной
   await app.mainPage.open(url);
   await app.mainPage.goToProductCard();
 
-  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorFrame).toContainText(mistakeFrame);
+  await expect(await app.mainPage.errorAlarm).toContainText(mistakeAlarm);
 });
 
 test('Выбрать валюту в карточке товара', async ({ page }) => {
