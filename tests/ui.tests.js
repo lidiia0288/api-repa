@@ -30,7 +30,7 @@ test('Проверить отображение товара на главной
   await app.mainPage.open(url);
   await app.mainPage.goToProductCard();
 
-  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемент
 
   await expect(await app.mainPage.errorAlarm).toContainText(mistakeAlarm);
 });
