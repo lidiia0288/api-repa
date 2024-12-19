@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { ApiClient } from '../src/api.client';
+import { ApiClient } from '../src/pages_api/api.client';
 import * as allure from "allure-js-commons";
 
 test.describe('API challenge', () => {
