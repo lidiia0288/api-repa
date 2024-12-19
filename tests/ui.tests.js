@@ -4,7 +4,7 @@ import {App} from '../src/pages_ui/app.page'
 
 const url = 'https://academybugs.com/find-bugs/';
 const productUrl = 'https://academybugs.com/store/flamingo-tshirt/';
-const mistakeFrame = 'You found a crash bug, examine the page for';
+const mistakeFrame = 'AcademyBugs.com';
 const mistakeAlarm = 'In this bug';
 let app;
 
@@ -28,9 +28,9 @@ test('Проверить отображение товара на главной
   await app.mainPage.open(url);
   await app.mainPage.goToProductCard();
 
-  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorFrame).toContainText(mistakeAlarm);
+  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
 });
 
 test('Выбрать валюту в карточке товара', async ({ page }) => {
@@ -40,9 +40,9 @@ test('Выбрать валюту в карточке товара', async ({ pa
   await app.mainPage.open(productUrl);
   await app.productPage.goToChange();
   
-  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorFrame).toContainText(mistakeAlarm);
+  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
 });
 
 
@@ -55,9 +55,9 @@ test('Опубликовать отзыв на странице продукта
   await app.productPage.goToWritePersonalData();
   await app.productPage.goToPost();
 
-  await app.mainPage.errorFrame.waitFor({ state: 'visible' }); //ждем загрузки элемента
+  await app.mainPage.errorAlarm.waitFor({ state: 'visible' }); //ждем загрузки элемента
 
-  await expect(await app.mainPage.errorFrame).toContainText(mistakeAlarm);
+  await expect(await app.mainPage.errorAlarm).toContainText(mistakeFrame);
 });
 
 test('Выбрать количество товара в карточке', async ({ page }) => {
