@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export class ChallengesPage {
-  constructor(baseUrl, token) {
+  constructor(token) {
     this.baseUrl = process.env.BASE_URL;
     this.token = token;
   }

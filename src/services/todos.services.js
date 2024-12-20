@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 export class TodosPage {
-  constructor(baseUrl, token) {
-    this.baseUrl = baseUrl;
+  constructor(token) {
+    this.baseUrl = process.env.BASE_URL;
     this.token = token;
   }
 
