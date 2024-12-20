@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { ApiClient } from '../src/services/api.client';
 import * as allure from "allure-js-commons";
 
-test.describe.only('API challenge', () => {
+test.describe('API challenge', () => {
 
   let client;
   let response;
