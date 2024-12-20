@@ -2,7 +2,6 @@ import axios from "axios";
 
 export class ChallengesPage {
   constructor(token) {
-    this.baseUrl = process.env.BASE_URL;
     this.token = token;
   }
 
@@ -10,7 +9,7 @@ export class ChallengesPage {
     try {
       const response = await axios({
         method,
-        url: `${this.baseUrl}/${endpoint}`,
+        url: `${process.env.BASE_URL}/${endpoint}`,
         data,
         headers: {
           "x-challenger": this.token,

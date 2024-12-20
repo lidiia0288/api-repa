@@ -3,7 +3,6 @@ import axios from "axios";
 
 export class TodosPage {
   constructor(token) {
-    this.baseUrl = process.env.BASE_URL;
     this.token = token;
   }
 
@@ -11,7 +10,7 @@ export class TodosPage {
     try {
       const response = await axios({
         method,
-        url: `${this.baseUrl}/${endpoint}`,
+        url: `${process.env.BASE_URL}/${endpoint}`,
         data,
         headers: {
           "x-challenger": this.token,
