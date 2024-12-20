@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { TodosPage, ChallengesPage } from "./index";
 
-const baseUrl = 'https://apichallenges.herokuapp.com';
-
 export class ApiClient {
 
+  static baseUrl = process.env.BASE_URL;
+
     constructor(token) {
-      this.todosPage = new TodosPage(baseUrl, token);
-      this.challengesPage = new ChallengesPage(baseUrl, token);
+      this.todosPage = new TodosPage(ApiClient.baseUrl, token);
+      this.challengesPage = new ChallengesPage(ApiClient.baseUrl, token);
     }
   
     static async login() {
@@ -16,7 +16,7 @@ export class ApiClient {
     }
 
     static async getToken() {
-      const response = await axios.post(`${baseUrl}/challenger`); //npx playwright test api.tests.js
+      const response = await axios.post(`${ApiClient.baseUrl}/challenger`); //npx playwright test api.tests.js
       return response.headers["x-challenger"];
     }
   }

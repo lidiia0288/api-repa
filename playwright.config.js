@@ -1,6 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-
+import 'dotenv/config';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -29,7 +29,6 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     //baseURL: 'https://apichallenges.herokuapp.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    chalUrl: process.env.CHAL_URL,
     baseUrl: process.env.BASE_URL,
 
     ignoreHTTPSErrors: true,
