@@ -11,8 +11,8 @@
       "customData": {}
     },
     "telegram": {
-      "token": "7624979249:AAH4JWeLam1eCU_4Mn-FKY0hgsjmoorDD2A",
-      "chat": "-4663460563",
+      "token": "${process.env.TOKEN}",
+      "chat": "${process.env.CHAT}",
       "replyTo": ""
     }
   }

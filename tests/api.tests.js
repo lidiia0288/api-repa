@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { ApiClient } from '../src/pages_api/api.client';
+import { ApiClient } from '../src/services/api.client';
 import * as allure from "allure-js-commons";
 
 test.describe('API challenge', () => {
@@ -28,7 +28,7 @@ test.describe('API challenge', () => {
     expect(response.status).toBe(200);
   });
 
-  test('Получить некорректный урл GET /todos @API', async ({ request }) => {
+  test('Нельзя запросить несуществующий todo GET /todos @API', async ({ request }) => {
     await allure.step("Отправить некорректный запрос todo", async () => {
     response = await client.todosPage.getTodos("todo");
     });
