@@ -11,8 +11,8 @@
       "customData": {}
     },
     "telegram": {
-      "token": "${process.env.TOKEN}",
-      "chat": "${process.env.CHAT}",
+      "token": "",
+      "chat": "",
       "replyTo": ""
     }
   }
